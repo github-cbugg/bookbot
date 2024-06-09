@@ -26,16 +26,13 @@ def sort(dict):
     return sorted_dictionary
 
 def main():
-    with open("books/frankenstein.txt") as f:
+    file_to_read = "books/frankenstein.txt"
+    with open(file_to_read) as f:
         file_contents = f.read()
         file_contents = file_contents.lower()
 
     #this printed out the entire book
     #print(file_contents)
-
-    #this printed out the number of words in the file
-    #word_array = file_contents.split()
-    #print(len(word_array))
 
     #This populates the dictionary with the count of each character
     number_of_characters = len(file_contents)
@@ -45,7 +42,16 @@ def main():
             d[character] += 1
 
     arranged_dictionary = sort(d)
+    print("--- Begin report of", file_to_read, " ---")
+    #this printed out the number of words in the file
+    word_array = file_contents.split()
+    print(len(word_array), "words found in the document")
+    print("")
+
+
     print_sorted(arranged_dictionary)
+
+    print("--- End report ---")
 
     #This prints the dictionary with the count
     #print(d)
